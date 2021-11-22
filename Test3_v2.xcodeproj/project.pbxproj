@@ -33,7 +33,8 @@
 		1DBA644F273D6DAB0028CB3F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA644D273D6DAA0028CB3F /* TableViewController.swift */; };
 		1DBA6450273D6DAB0028CB3F /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DBA644E273D6DAA0028CB3F /* TableViewController.xib */; };
 		1DBA6465273D6F130028CB3F /* TableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA6464273D6F130028CB3F /* TableViewPresenter.swift */; };
-		1DBA646A273D6F210028CB3F /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA6469273D6F210028CB3F /* MainBuilder.swift */; };
+		1DBA646A273D6F210028CB3F /* AssemblyModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA6469273D6F210028CB3F /* AssemblyModelBuilder.swift */; };
+		50AB79A7274A7F43000A5AB9 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AB79A6274A7F43000A5AB9 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +87,8 @@
 		1DBA644D273D6DAA0028CB3F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = Test3_v2/MainNewsTableView/View/TableViewController.swift; sourceTree = SOURCE_ROOT; };
 		1DBA644E273D6DAA0028CB3F /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewController.xib; path = Test3_v2/MainNewsTableView/View/TableViewController.xib; sourceTree = SOURCE_ROOT; };
 		1DBA6464273D6F130028CB3F /* TableViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewPresenter.swift; path = Test3_v2/MainNewsTableView/Presenter/TableViewPresenter.swift; sourceTree = SOURCE_ROOT; };
-		1DBA6469273D6F210028CB3F /* MainBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainBuilder.swift; path = Test3_v2/MainBuilder.swift; sourceTree = SOURCE_ROOT; };
+		1DBA6469273D6F210028CB3F /* AssemblyModelBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssemblyModelBuilder.swift; path = Test3_v2/AssemblyModelBuilder.swift; sourceTree = SOURCE_ROOT; };
+		50AB79A6274A7F43000A5AB9 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,8 +304,9 @@
 		1D881798273AAB6F003936B2 /* Test3_v2 */ = {
 			isa = PBXGroup;
 			children = (
+				50AB79A6274A7F43000A5AB9 /* Router.swift */,
 				1D3702932745441B0029FEFB /* MainDetailCollectionView */,
-				1DBA6469273D6F210028CB3F /* MainBuilder.swift */,
+				1DBA6469273D6F210028CB3F /* AssemblyModelBuilder.swift */,
 				1D37024B2743E43F0029FEFB /* MainTableViewCell */,
 				1D37021D2743C4C00029FEFB /* MainCollectionViewCell */,
 				1D37021C2743C4AB0029FEFB /* MainCollectionView */,
@@ -524,13 +527,14 @@
 				1D37020C2742D2850029FEFB /* NetworkService.swift in Sources */,
 				1D37029A274544E50029FEFB /* DetailCollectionView.swift in Sources */,
 				1D3702072742D1310029FEFB /* Model.swift in Sources */,
-				1DBA646A273D6F210028CB3F /* MainBuilder.swift in Sources */,
+				1DBA646A273D6F210028CB3F /* AssemblyModelBuilder.swift in Sources */,
 				1D3702A627466EAF0029FEFB /* CollectionViewController.swift in Sources */,
 				1D88179E273AAB6F003936B2 /* ViewController.swift in Sources */,
 				1DBA644F273D6DAB0028CB3F /* TableViewController.swift in Sources */,
 				1D88179A273AAB6F003936B2 /* AppDelegate.swift in Sources */,
 				1D30BFC8273C0CA4005F7752 /* OtherNewsTableViewCell.swift in Sources */,
 				1D88179C273AAB6F003936B2 /* SceneDelegate.swift in Sources */,
+				50AB79A7274A7F43000A5AB9 /* Router.swift in Sources */,
 				1D30BFA4273C0635005F7752 /* OtherTableViewCellModel.swift in Sources */,
 				1D370288274512850029FEFB /* CollectionViewTableViewCell.swift in Sources */,
 				1D3702A0274548AA0029FEFB /* DetailCollectionViewPresenter.swift in Sources */,

@@ -26,7 +26,15 @@ class OtherNewsTableViewCell: UITableViewCell{
     }
   func set(object: Articles){
     self.dateLabel.text = object.publishedAt
-    self.imageNews.image = UIImage(data: (try? Data(contentsOf: URL(string: object.urlToImage ?? "https://images.ua.prom.st/1954375335_w640_h640_dokshelter-alyuteh-dsf.jpg")!))!)
+    let url = URL(string: object.urlToImage ?? "https://images.ua.prom.st/1954375335_w640_h640_dokshelter-alyuteh-dsf.jpg")
+    let data = (try? Data(contentsOf: url!))
+    if(data == nil){
+        self.imageNews.image = UIImage(named: "11.png")
+    }
+    else{
+        
+        self.imageNews.image = UIImage(data: data!)
+    }
     self.urlLabel.text = object.url
     self.mainNewsTextView.text = object.title
   }

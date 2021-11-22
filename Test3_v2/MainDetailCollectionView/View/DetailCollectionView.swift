@@ -28,7 +28,13 @@ extension DetailCollectionView: DetailCollectionViewProtocol{
   func setData(data: Articles?) {
     var url = URL(string: data?.urlToImage ?? "https://images.ua.prom.st/1954375335_w640_h640_dokshelter-alyuteh-dsf.jpg")
     var data1 = try? Data(contentsOf: url!)
-    newsDetailsImageView.image = UIImage(data: data1!)
+    if (data == nil) {
+        newsDetailsImageView.image = UIImage(named: "11.png")
+    }
+    else{
+        newsDetailsImageView.image = UIImage(data: data1!)
+    }
+    
     newsDetailsDateLabel.text = data?.publishedAt
     newsDetailsHistoryLabel.text = data?.url
     newsDetailsTopicTextView.text = data?.title

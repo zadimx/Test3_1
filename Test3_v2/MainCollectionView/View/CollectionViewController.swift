@@ -9,7 +9,7 @@ import UIKit
 
 class CollectionViewController: UIViewController, UICollectionViewDataSource{
   var indexOfPageToRequest = 1
-  var presenter: TableViewPresenterProtocol!
+  var presenter: CollectionViewPresenterProtocol!
   let networkService = NetworkService()
 //  var searchPerson: [Articles]?
   
@@ -95,8 +95,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource{
     print("####didSelectItemAt \(indexPath.row)")
     let data = presenter.articles?[indexPath.row]
 //    let data = Articles(title: objectOtherTableViewCellModel[indexPath.row].descriptionNewsTextView, content: objectOtherTableViewCellModel[indexPath.row].descriptionNewsTextView, urlToImage: objectOtherTableViewCellModel[indexPath.row].imageNews, url: objectOtherTableViewCellModel[indexPath.row].historyLabel, publishedAt: objectOtherTableViewCellModel[indexPath.row].dateLabel)
-    let detailCollectionViewController = ModelBuilder.createDateilCollectionViewModule(data: data)
-    navigationController?.pushViewController(detailCollectionViewController, animated: true)
+//    let detailCollectionViewController = AssemblyModelBuilder.createDateilCollectionViewModule(data: data)
+//    navigationController?.pushViewController(detailCollectionViewController, animated: true)
+    presenter.tabOnTheArticles(articles: data)
   }
 }
 extension CollectionViewController: UICollectionViewDelegate{
@@ -105,7 +106,7 @@ extension CollectionViewController: UICollectionViewDelegate{
     return presenter?.articles?.count ?? 0
   }
 }
-extension CollectionViewController: TableViewProtocol{
+extension CollectionViewController: CollectionViewProtocol{
   func success() {
     collectionView.reloadData()
   }

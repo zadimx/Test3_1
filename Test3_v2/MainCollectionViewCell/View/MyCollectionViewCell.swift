@@ -29,8 +29,12 @@ class MyCollectionViewCell: UICollectionViewCell {
     print("#####configuration \(mainObject.urlToImage)")
     var url = URL(string: mainObject.urlToImage ?? "https://images.ua.prom.st/1954375335_w640_h640_dokshelter-alyuteh-dsf.jpg")
     var data = try? Data(contentsOf: url!)
-    
+    if(data == nil){
+        myImageView.image = UIImage(named: "11.png")
+    }
+    else{
     myImageView.image = UIImage(data: data!)
+    }
   }
   
 //  func set() -> Other{

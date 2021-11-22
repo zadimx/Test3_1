@@ -23,7 +23,6 @@ class CollectionViewTableViewCell: UITableViewCell {
     print("####CollectionViewTableViewCell")
 //    constrationCollectionView()
     collectionView.addSubview(collectionViewController.view)
-    
   }
   func constrationCollectionView(){
     collectionViewController.view.translatesAutoresizingMaskIntoConstraints = false

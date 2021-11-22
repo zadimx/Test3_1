@@ -16,9 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let scene = (scene as? UIWindowScene) else { return }
     window = UIWindow(frame: scene.coordinateSpace.bounds)
     window?.windowScene = scene
-    let mainVC = ModelBuilder.createMainModule()
-    let navBar = UINavigationController(rootViewController: mainVC)
-    window?.rootViewController = navBar
+    let navigationController = UINavigationController()
+    let splitViewController = UISplitViewController()
+    let assemblyBuilder = AssemblyModelBuilder()
+    let router = Router(navigationController: navigationController, assemblyBuilder: assemblyBuilder, splitViewController: splitViewController)
+    router.initialViewController()
+//    window?.rootViewController?.present(splitViewController, animated: true, completion: nil)
+    window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.

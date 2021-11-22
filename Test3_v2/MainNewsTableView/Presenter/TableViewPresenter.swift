@@ -14,13 +14,16 @@ protocol TableViewProtocol: class {
 }
 
 protocol TableViewPresenterProtocol: class {
-  init(view: TableViewProtocol, networkService: NetworkServiceProtocol)
+    init(view: TableViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
   func getArticles()
   var articles: [Articles]? {get set}
+    func tabOnTheArticles(articles: Articles?)
 }
 
 class TableViewPresenter: TableViewPresenterProtocol {
-  
+    
+    
+    
   var articles: [Articles]? = [
     Articles(title: "Привет, это тестовый Title Он будет стоять до парсинга JSON1", content: "Привет, это тестовый TextView Он будет стоять до парсинга JSON1", urlToImage: "https://images.ua.prom.st/1954375335_w640_h640_dokshelter-alyuteh-dsf.jpg", url: "history1", publishedAt: "1 min ago"),
     Articles(title: "Привет, это тестовый Title Он будет стоять до парсинга JSON1", content: "Привет, это тестовый TextView Он будет стоять до парсинга JSON1", urlToImage: "https://images.ua.prom.st/1954375335_w640_h640_dokshelter-alyuteh-dsf.jpg", url: "history1", publishedAt: "1 min ago"),
@@ -29,14 +32,19 @@ class TableViewPresenter: TableViewPresenterProtocol {
     Articles(title: "Привет, это тестовый Title Он будет стоять до парсинга JSON1", content: "Привет, это тестовый TextView Он будет стоять до парсинга JSON1", urlToImage: "https://images.ua.prom.st/1954375335_w640_h640_dokshelter-alyuteh-dsf.jpg", url: "history1", publishedAt: "1 min ago")
   ]
   weak var view: TableViewProtocol?
+    var router: RouterProtocol?
   let networkService: NetworkServiceProtocol!
   
-  required init(view: TableViewProtocol, networkService: NetworkServiceProtocol) {
+    required init(view: TableViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
     self.view = view
+        self.router = router
     self.networkService = networkService
     getArticles()
   }
   
+    func tabOnTheArticles(articles: Articles?) {
+        router?.showDeteil(articles: articles)
+    }
   func getArticles() {
     
     let urlString = "https://newsapi.org/v2/top-headlines?country=us&pageSize=1&page=\((articles?.count ?? 1)-1)&apiKey=0af1fbd249a447148be5eb4a3a6a6368"

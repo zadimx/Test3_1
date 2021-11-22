@@ -12,7 +12,7 @@ class TableViewController: UIViewController{
   var indexOfPageToRequest = 1
   let networkService = NetworkService()
   
-  var mainPresenter: TableViewPresenterProtocol!
+    var mainPresenter: TableViewPresenterProtocol!
 
   @IBOutlet weak var tableView: UITableView!{
     didSet{
@@ -26,6 +26,7 @@ class TableViewController: UIViewController{
       tableView.dataSource = self
       tableView.delegate = self
       view.addSubview(tableView)
+    tableView.reloadData()
     }
   
 }
@@ -48,12 +49,12 @@ extension TableViewController: UITableViewDataSource{
       return cell!
     }
   }
+    
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("$$$$$tableViewdidSelectRowAt \(mainPresenter.articles?.count) \(indexPath.row)")
     let data = mainPresenter.articles?[indexPath.row]
 //    let data = Articles(title: objectOtherTableViewCellModel[indexPath.row].descriptionNewsTextView, content: objectOtherTableViewCellModel[indexPath.row].descriptionNewsTextView, urlToImage: objectOtherTableViewCellModel[indexPath.row].imageNews, url: objectOtherTableViewCellModel[indexPath.row].historyLabel, publishedAt: objectOtherTableViewCellModel[indexPath.row].dateLabel)
-    let detailCollectionViewController = ModelBuilder.createDateilCollectionViewModule(data: data)
-    navigationController?.pushViewController(detailCollectionViewController, animated: true)
+    mainPresenter.tabOnTheArticles(articles: data)
   }
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     
